@@ -19,3 +19,6 @@ Roboterarm_Projekt für Embedded Systems 1
 
 9.) Arm bewegen lassen.
 
+
+
+https://nootrix.com/tutorials/arbotix-arduino-dynamixel-servos/
