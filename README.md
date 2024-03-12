@@ -1,7 +1,7 @@
 # Roboterarm_Projekt
 Roboterarm_Projekt für Embedded Systems 1
 
-1.) Unter "Bibliothek" befindet sich die ax12 Ordner und in diesem die Bibliothek. Der ax12 Ordner ist runterzuladen und in den libraries Ordner der Arduino IDE einzufügen.
+1.) Unter "Bibliothek" befindet sich der Arbotix Ordner und in diesem die Bibliothek. Der Arbotix Ordner ist runterzuladen und in den libraries Ordner der Arduino IDE einzufügen.
 
 2.) Unter "Hardware/arbotix" ist der arbotix Ordner runterzuladen und in den Hardware Ordner der Arduino IDE einzufügen.
 
