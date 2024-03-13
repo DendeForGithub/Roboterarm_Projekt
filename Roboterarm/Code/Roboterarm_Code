@@ -6,13 +6,12 @@
  */
 
 
-#include <ax12.h> 
+#include <ax12.h>                                               //Einbindung der ax12.h Bibliothek, die alle wichtigen Befehle für die Dynamixel Motoren enthält
 #include <Arduino.h>
-#include <BioloidController.h>
-#include <dynamixel_mx.h>
 
 
 int Modus = 0;                                                  //Initialisierung der Variable "Modus" 
+
 
 void setup() {                                                  //Funktion "setup" wird erstellt; läuft nur zu Programmstart durch
   Serial.begin(9600);                                           //Öffnet die serielle Schnittstelle und stellt die Datenrate auf 9600 Bit/s ein
@@ -31,13 +30,14 @@ void loop() {
 
 
 int Objektposition() {                                          //Funktion "Objektposition()" wird erstellt
-  delay(500);                                                  //1000 ms also 1 s warten
+  delay(500);                                                   //1000 ms also 1 s warten
   Modus = 1;                                                    //Variable Modus erhält den Wert "1"
   moveToStartposition();                                        //Aufruf der Funktion "moveToStartposition()"
   Serial.println(" Bitte geben Sie die Objektposition an:");    //Ausgabe in neuer Zeile: Eingabeaufforderung für die Objektposition
   while (!posit());                                             //Warten das die Funktion "posit" true zurück gibt = eingegebene Position wurde erreicht
   Zielposition();                                               //Aufruf der Funktion "Zielposition()"
 }
+
 
 int Zielposition() {                                            //Funktion "Zielposition()" wird erstellt
   delay(500);                                                  
@@ -47,6 +47,7 @@ int Zielposition() {                                            //Funktion "Ziel
   while (!posit());
   Objektposition();
 }
+
 
 boolean posit() {                                               //Funktion "posit()" wird erstellt
   int Objektpos = Serial.read();                                //Einlesen des Wertes, der in der Funktion "Objektposition()", nach der Eingabeaufforderung eingegeben wird. Diesen Wert erhält die Variable "Objektpos".
@@ -186,7 +187,6 @@ int Armbewegung(){                                              //Funktion "Armb
 }
 
 
-
 void moveToPosition1(){                                         //Funktion "moveToPosition1()" wird deklariert
   dxlSetGoalPosition(1, 1022);
   while(dxlGetMoving(1)){
@@ -267,6 +267,7 @@ void moveToPosition8(){                                         //Funktion "move
   Armbewegung();
 }
 
+
 int displayServoPosition(int servoID){                          //Funktion "displayServoPosition(int servoID)" wird deklariert
     Serial.println("------------------------------------------");
   for( int servoID = 1; servoID < 7; servoID++){                //Variable "servoID" wird von 1 bis 6 hochgezählt
@@ -276,6 +277,7 @@ int displayServoPosition(int servoID){                          //Funktion "disp
     Serial.println(getServoPosition(servoID));                  //Ausgabe der Servoposition, indem die Funktion "getServoPosition(servoID)" aufgerufen wird
 }
 }
+
 
 int getServoPosition(int servoID){                              //Funktion "displayServoPosition(int servoID)" wird deklariert
   int position;                                               
@@ -293,6 +295,7 @@ int getServoPosition(int servoID){                              //Funktion "disp
   return -1;
 }
 
+
 void setgoalspeed(){                                            //Für Servos werden die Bewegungsgeschwindigkeiten festgelegt
   dxlSetGoalSpeed(1, 97);                                       //Mit Befehl "dxlSetGoalSpeed(ServoID, speedValue)", aus ax12.h, werden die Bewegungsgeschwindigkeiten festgelegt
   dxlSetGoalSpeed(2, 97); 
@@ -301,7 +304,7 @@ void setgoalspeed(){                                            //Für Servos we
   dxlSetGoalSpeed(5, 97); 
   dxlSetGoalSpeed(6, 97);                                                  
 }
-  
+
 
  boolean isReady(){                                             //Funktion "isReady()" wird deklariert
   delay(500); 
@@ -315,7 +318,6 @@ void setgoalspeed(){                                            //Für Servos we
 }
 
 
-
 void ensureServoInJointMode(){                                  //Funktion "ensureServoInJointMode()" wird deklariert
   int ServoIDAX[] = {1, 5, 6};
   int ServoIDMX[] = {2, 3, 4};
@@ -325,7 +327,7 @@ void ensureServoInJointMode(){                                  //Funktion "ensu
   int maxPositionMX = 4096;
   if (dxlGetMode(ServoIDAX) == 1){
       Serial.println("AX Servos sind bereits im Jointmode.");
-      dxlSetJointMode(ServoIDAX, minPositionAX, maxPositionAX); //Mit Befehl "dxlSetJointMode(ServoID´s, minPosition, maxPosition)", aus ax12.h, werden die AX - und MX - Servos in den Jointmode gesetzt
+      dxlSetJointMode(ServoIDAX, minPositionAX, maxPositionAX);  //Mit Befehl "dxlSetJointMode(ServoID´s, minPosition, maxPosition)", aus ax12.h, werden die AX - und MX - Servos in den Jointmode gesetzt
       return;   
   }
   Serial.println("Die AX Servos werden in den Jointmode gesetzt."); 
@@ -339,7 +341,6 @@ void ensureServoInJointMode(){                                  //Funktion "ensu
   Serial.println("Die AX Servos werden in den Jointmode gesetzt."); 
   dxlSetJointMode(ServoIDMX, minPositionMX, maxPositionMX); 
 }
-
 
 
 void checkVoltage(){                                            //Funktion "checkVoltage()" wird deklariert
