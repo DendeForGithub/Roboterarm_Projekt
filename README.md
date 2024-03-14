@@ -11,7 +11,7 @@ verwendte IDE: Arduino IDE 1.8.0
 
 4.) Unter Werkzeuge --> Board --> Arbotix Std auswählen.
 
-5.) Unter Ordner Code den Roboterarm_Code in die Arduino IDE einfügen.
+5.) Unter Ordner "Code" befindet sich der Code. Der Roboterarm_Code ist in die Arduino IDE einzufügen.
 
 6.) Board und Arm mit Spannung versorgen. 
 
@@ -19,7 +19,7 @@ verwendte IDE: Arduino IDE 1.8.0
 
 8.) Mit Strg+Shift+M wird der serielle Monitor geöffnet.
 
-9.) Arm bewegen lassen.
+9.) Arm bewegen lassen durch Eingabe von Positionen 1 bis 7.
 
 
 Weitere Infos unter:
