@@ -22,5 +22,5 @@ verwendte IDE: Arduino IDE 1.8.0
 9.) Arm bewegen lassen.
 
 
-
+Weitere Infos unter:
 https://nootrix.com/tutorials/arbotix-arduino-dynamixel-servos/
